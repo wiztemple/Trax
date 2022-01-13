@@ -11,7 +11,6 @@ const AuthForm: React.FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { mutate } = useSWRConfig();
 
   const handleSignin = async (e) => {
     e.preventDefault();
