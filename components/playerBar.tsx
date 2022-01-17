@@ -4,7 +4,7 @@ import Player from "./player";
 const PlayerBar = () => {
   return (
     <Box width="100vw" height="100px" bg="gray.900" padding="10px" color="gray">
-      <Flex>
+      <Flex align="center">
         <Box padding="20px" color="white" width="30%">
           <Text fontSize="lg">Song Name</Text>
           <Text fontSize="sm" fontWeight="medium">
