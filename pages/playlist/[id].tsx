@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/layout";
 import GradientLayout from "../../components/gradientLayout";
 import SongsTable from "../../components/songsTable";
 import { validateToken } from "../../lib/auth";
@@ -34,11 +33,23 @@ const Playlist = ({ playlist }) => {
 };
 
 export const getServerSideProps = async ({ query, req }) => {
-  const { id } = validateToken(req.cookies.LIFETRACKS_ACCESS_TOKEN);
+  let user;
+
+  try {
+    user = validateToken(req.cookies.LIFETRACKS_ACCESS_TOKEN);
+  } catch (error) {
+    return {
+      rediect: {
+        destination: "/signin",
+        permanent: false,
+      },
+    };
+  }
+
   const [playlist] = await prisma.playlist.findMany({
     where: {
       id: +query.id,
-      userId: id,
+      userId: user.id,
     },
     include: {
       songs: {
