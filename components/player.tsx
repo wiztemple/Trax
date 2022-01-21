@@ -184,7 +184,7 @@ const Player = ({ songs, activeSong }) => {
               arial-label={["min", "max"]}
               step={0.1}
               min={0}
-              max={duration ? duration.toFixed() : 0}
+              max={duration ? (duration.toFixed() as unknown as number) : 0}
               onChange={onSeek}
               id="player-range"
               value={[seek]}
