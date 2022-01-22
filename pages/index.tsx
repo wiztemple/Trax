@@ -52,7 +52,7 @@ const Home = ({ artists }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async () => {
   const artists = await prisma.artist.findMany();
 
   return {

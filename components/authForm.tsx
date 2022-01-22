@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Box, Flex, Input, Button } from "@chakra-ui/react";
 import NextImage from "next/image";
 import { useRouter } from "next/router";
-import { useSWRConfig } from "swr";
 import { auth } from "../lib/mutations";
 
 const AuthForm: React.FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
